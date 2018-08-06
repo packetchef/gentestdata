@@ -24,17 +24,18 @@ def strTimeProp(start, end, format, prop):
     return time.strftime(format, time.localtime(ptime))
 
 
-def getRandomDate(start, end, prop):
-    return strTimeProp(start, end, '%Y-%m-%d', prop)
+def getRandomDate(count, start, end, prop):
+    dateset = []
+    while len(dateset) < count:
+        dateset.append(strTimeProp(start, end, '%Y-%m-%d', prop))
+    return dateset
 
 
 def main(args):
     requestDateCount = int(args[0])
-    
-    for rdc in range(1, requestDateCount):
-        # Date will be >= start and < end
-        randomDate = getRandomDate('2000-01-01', '2018-08-02', random.random())    
-        print(randomDate)
+    # Date will be >= start and < end
+    randomDates = getRandomDate(requestDateCount, '2000-01-01', '2018-08-02', random.random())    
+    print(randomDates)
 
 
 if __name__ == '__main__':

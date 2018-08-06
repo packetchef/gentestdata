@@ -20,10 +20,11 @@ def main(args):
 
     ssns = genSSN(count)
     names = getRandomNames(count, namefile)
+    dates = getRandomDate(count, '1970-01-01', '2018-08-01', random())
 
-    dates = []
-    while len(dates) < count:
-        dates.append(getRandomDate('1970-01-01','2018-08-01',random()))
+    #dates = []
+    #while len(dates) < count:
+    #    dates.append(getRandomDate('1970-01-01','2018-08-01',random()))
 
     records = 0
     with open(outfile, 'wb') as fs:
